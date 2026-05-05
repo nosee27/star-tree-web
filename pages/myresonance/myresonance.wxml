@@ -1,0 +1,60 @@
+<view class="container">
+  <!-- 头部导航 -->
+  <view class="header">
+    <text class="header-title">我的共鸣</text>
+    <text class="header-back" bindtap="goBack">←</text>
+  </view>
+  
+  <!-- 共鸣统计 -->
+  <view class="stats-section">
+    <view class="stat-item">
+      <view class="stat-number">{{resonances.length}}</view>
+      <view class="stat-label">共鸣总数</view>
+    </view>
+  </view>
+  
+  <!-- 共鸣列表 -->
+  <view class="resonance-section">
+    <view class="section-title">── 我共鸣的内容 ──</view>
+    
+    <view class="resonance-list" wx:if="{{resonances.length > 0}}">
+      <view class="resonance-item" wx:for="{{resonances}}" wx:key="id">
+        <view class="resonance-header">
+          <text class="resonance-author">{{item.author}}</text>
+          <text class="resonance-time">{{item.time}}</text>
+        </view>
+        <text class="resonance-content">{{item.content}}</text>
+        
+        <!-- 图片显示 -->
+        <view class="resonance-images" wx:if="{{item.images && item.images.length > 0}}">
+          <image class="resonance-image" wx:for="{{item.images}}" wx:key="index" src="{{item}}"></image>
+        </view>
+        
+        <!-- 标签 -->
+        <view class="resonance-tags" wx:if="{{item.tags && item.tags.length > 0}}">
+          <text class="resonance-tag" wx:for="{{item.tags}}" wx:key="index">#{{item}}</text>
+        </view>
+        
+        <!-- 互动数据 -->
+        <view class="resonance-stats">
+          <text class="stat-item">❤️ {{item.likes}}</text>
+          <text class="stat-item">💬 {{item.comments}}</text>
+          <text class="stat-item">❤️ {{item.resonance || 0}}</text>
+        </view>
+        
+        <!-- 操作按钮 -->
+        <view class="resonance-actions">
+          <text class="action-btn" bindtap="viewOriginal" data-id="{{item.id}}">查看原文</text>
+          <text class="action-btn" bindtap="removeResonance" data-id="{{item.id}}">取消共鸣</text>
+        </view>
+      </view>
+    </view>
+    
+    <view class="empty-state" wx:else>
+      <text class="empty-icon">❤️</text>
+      <text class="empty-text">还没有共鸣内容</text>
+      <text class="empty-hint">去首页寻找引起你共鸣的内容吧！</text>
+      <button class="btn btn-primary" bindtap="goToHome">去浏览</button>
+    </view>
+  </view>
+</view>

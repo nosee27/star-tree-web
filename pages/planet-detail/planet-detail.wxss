@@ -1,0 +1,219 @@
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* 头部 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.back-btn {
+  font-size: 16px;
+  color: #333;
+  padding: 10px;
+}
+
+.header-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.placeholder {
+  width: 40px;
+}
+
+/* 星球信息 */
+.planet-info {
+  background-color: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.planet-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.planet-type {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.planet-status {
+  font-size: 14px;
+  color: #4CAF50;
+  background-color: #E8F5E8;
+  padding: 5px 15px;
+  border-radius: 15rpx;
+}
+
+.planet-content {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  white-space: pre-wrap;
+}
+
+.planet-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.planet-author {
+  font-size: 14px;
+  color: #666;
+}
+
+.planet-time {
+  font-size: 14px;
+  color: #999;
+}
+
+.planet-info-text {
+  font-size: 14px;
+  color: #666;
+}
+
+/* 互动区域 */
+.interaction-section {
+  background-color: white;
+  margin: 0 20px 20px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.action-icon {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.action-text {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.action-label {
+  font-size: 12px;
+  color: #666;
+}
+
+/* 评论区域 */
+.comments-section {
+  background-color: white;
+  margin: 0 20px 20px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.comments-list {
+  margin-bottom: 20px;
+}
+
+.comment-item {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.comment-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.comment-author {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.comment-time {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.comment-content {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.no-comments {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.no-comments-text {
+  font-size: 14px;
+  color: #999;
+}
+
+.comment-input {
+  display: flex;
+  gap: 10px;
+}
+
+.input {
+  flex: 1;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 24px;
+  font-size: 14px;
+}
+
+.btn {
+  height: 48px;
+  border-radius: 24px;
+  font-size: 16px;
+  padding: 0 20px;
+}
+
+.btn-primary {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+}

@@ -1,0 +1,61 @@
+<view class="container">
+  <!-- 头部 -->
+  <view class="header">
+    <text class="header-title">💬 消息中心</text>
+  </view>
+  
+  <!-- 消息类型 -->
+  <view class="message-types">
+    <view class="types-section">
+      <text class="section-title">消息类型</text>
+      <view class="type-item {{selectedType === 'all' ? 'active' : ''}}" bindtap="selectType" data-type="all">
+        <text class="type-status">{{selectedType === 'all' ? '[●]' : '[○]'}}</text>
+        <text class="type-text">全部</text>
+      </view>
+      <view class="type-item {{selectedType === 'resonance' ? 'active' : ''}}" bindtap="selectType" data-type="resonance">
+        <text class="type-status">{{selectedType === 'resonance' ? '[●]' : '[○]'}}</text>
+        <text class="type-text">共鸣</text>
+      </view>
+      <view class="type-item {{selectedType === 'planet' ? 'active' : ''}}" bindtap="selectType" data-type="planet">
+        <text class="type-status">{{selectedType === 'planet' ? '[●]' : '[○]'}}</text>
+        <text class="type-text">星球</text>
+      </view>
+      <view class="type-item {{selectedType === 'treehole' ? 'active' : ''}}" bindtap="selectType" data-type="treehole">
+        <text class="type-status">{{selectedType === 'treehole' ? '[●]' : '[○]'}}</text>
+        <text class="type-text">树洞</text>
+      </view>
+      <view class="type-item {{selectedType === 'system' ? 'active' : ''}}" bindtap="selectType" data-type="system">
+        <text class="type-status">{{selectedType === 'system' ? '[●]' : '[○]'}}</text>
+        <text class="type-text">系统</text>
+      </view>
+      <view class="type-item {{selectedType === 'warning' ? 'active' : ''}}" bindtap="selectType" data-type="warning">
+        <text class="type-status">{{selectedType === 'warning' ? '[●]' : '[○]'}}</text>
+        <text class="type-text">预警</text>
+      </view>
+    </view>
+    
+    <view class="unread-section">
+      <text class="unread-title">未读：3</text>
+      <text class="clear-btn" bindtap="clearMessages">[清空]</text>
+    </view>
+  </view>
+  
+  <!-- 消息列表 -->
+  <view class="message-list">
+    <!-- 星球回复消息 -->
+    <view class="message-item" wx:for="{{messages}}" wx:key="id">
+      <view class="message-header">
+        <text class="message-type">{{item.typeIcon}} {{item.type}}</text>
+      </view>
+      <view class="message-content">
+        <text class="message-author">{{item.author}}</text>
+        <text class="message-text">{{item.content}}</text>
+        <text class="message-time">{{item.time}}</text>
+        <view class="message-actions">
+          <text class="action-btn" bindtap="viewMessage" data-id="{{item.id}}">[查看]</text>
+          <text class="action-btn" bindtap="replyMessage" data-id="{{item.id}}" wx:if="item.showReply">[回复]</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

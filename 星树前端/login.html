@@ -1,0 +1,120 @@
+﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星树 - 登录</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <!-- Logo区域 -->
+        <div class="logo-section">
+            <span class="logo-emoji">⭐</span>
+            <h1 class="logo-text">星树</h1>
+            <p class="logo-subtext">Star Tree</p>
+        </div>
+
+        <!-- 欢迎语 -->
+        <div class="welcome-section">
+            <p class="welcome-text">在星树，安放你的每一颗情绪星球</p>
+        </div>
+
+        <!-- 登录注册表单 -->
+        <div class="form-section">
+            <!-- 登录表单 -->
+            <div class="form-card" id="loginForm">
+                <h2 class="form-title">登录</h2>
+                
+                <div class="input-group">
+                    <label class="input-label">手机号/邮箱</label>
+                    <input type="text" class="input" placeholder="请输入手机号或邮箱" id="account">
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">验证码</label>
+                    <div class="verification-code">
+                        <input type="text" class="input" placeholder="请输入验证码" id="verificationCode">
+                        <button class="btn btn-secondary" onclick="getLoginVerificationCode()">获取验证码</button>
+                    </div>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox-group">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkbox-label">记住我</span>
+                    </label>
+                    <a href="forgot.html" class="forgot-link">忘记密码?</a>
+                </div>
+                
+                <button class="btn btn-primary btn-full" onclick="login()">登录</button>
+                
+                <div class="divider">
+                    <span class="divider-text">—— 或 ——</span>
+                </div>
+                
+                <button class="social-login-btn" onclick="loginWithWechat()">
+                    <span class="social-icon">💬</span>
+                    <span class="social-label">微信登录</span>
+                </button>
+            </div>
+            
+            <!-- 注册表单 -->
+            <div class="form-card" id="registerForm" style="display: none;">
+                <h2 class="form-title">注册</h2>
+                
+                <div class="input-group">
+                    <label class="input-label">手机号/邮箱</label>
+                    <input type="text" class="input" placeholder="请输入手机号或邮箱" id="registerAccount">
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">验证码</label>
+                    <div class="verification-code">
+                        <input type="text" class="input" placeholder="请输入验证码" id="registerVerificationCode">
+                        <button class="btn btn-secondary" onclick="getVerificationCode()">获取验证码</button>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">密码</label>
+                    <input type="password" class="input" placeholder="请输入密码（至少8位）" id="registerPassword">
+                </div>
+                
+                <button class="btn btn-primary btn-full" onclick="register()">注册</button>
+                
+                <div class="divider">
+                    <span class="divider-text">—— 或 ——</span>
+                </div>
+                
+                <button class="social-login-btn" onclick="registerWithWechat()">
+                    <span class="social-icon">💬</span>
+                    <span class="social-label">微信注册</span>
+                </button>
+            </div>
+            
+            <!-- 切换登录/注册 -->
+            <div class="tab-switch">
+                <span class="tab-item active" id="loginTab" onclick="switchToLogin()">登录</span>
+                <span class="tab-item" id="registerTab" onclick="switchToRegister()">注册</span>
+            </div>
+        </div>
+
+        <!-- 底部链接 -->
+        <div class="footer-section">
+            <a href="agreement.html" class="footer-link">用户协议</a>
+            <a href="privacy.html" class="footer-link">隐私政策</a>
+            <a href="contact.html" class="footer-link">联系我们</a>
+            <a href="help.html" class="footer-link">帮助中心</a>
+        </div>
+
+        <!-- 安全提示 -->
+        <div class="security-section">
+            <p class="security-text">🔒 匿名保护 · 数据加密 · 安全存储 · 境内服务器</p>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

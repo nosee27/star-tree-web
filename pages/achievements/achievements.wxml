@@ -1,0 +1,52 @@
+<view class="container">
+  <!-- 头部 -->
+  <view class="header">
+    <text class="header-title">🏆 成就徽章</text>
+    <text class="back-btn" bindtap="goBack">← 返回</text>
+  </view>
+  
+  <!-- 成就统计 -->
+  <view class="stats-section">
+    <view class="stat-card">
+      <text class="stat-number">{{totalAchievements}}</text>
+      <text class="stat-label">总成就数</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-number">{{earnedAchievements.length}}</text>
+      <text class="stat-label">已获得</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-number">{{unearnedAchievements.length}}</text>
+      <text class="stat-label">未获得</text>
+    </view>
+  </view>
+  
+  <!-- 成就列表 -->
+  <view class="achievements-section">
+    <text class="section-title">── 成就徽章 ──</text>
+    <view class="achievements-list">
+      <view class="achievement-item" wx:for="{{achievements}}" wx:key="id">
+        <view class="achievement-icon {{item.earned ? 'earned' : 'unearned'}}">
+          <text class="icon">{{item.icon}}</text>
+        </view>
+        <view class="achievement-info">
+          <text class="achievement-name">{{item.name}}</text>
+          <text class="achievement-desc">{{item.description}}</text>
+          <text class="achievement-progress" wx:if="!item.earned">
+            进度: {{item.progress}}/{{item.target}}
+          </text>
+          <text class="achievement-date" wx:if="item.earned">
+            获得时间: {{item.earnedDate}}
+          </text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{achievements.length === 0}}">
+    <text class="empty-icon">🏆</text>
+    <text class="empty-text">还没有任何成就</text>
+    <button class="btn btn-primary" bindtap="goToExplore">去探索星球</button>
+  </view>
+</view>

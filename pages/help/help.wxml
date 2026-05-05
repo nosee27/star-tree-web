@@ -1,0 +1,40 @@
+<view class="container">
+  <!-- 头部 -->
+  <view class="header">
+    <text class="back-btn" bindtap="goBack">← 返回</text>
+    <text class="header-title">帮助中心</text>
+    <text class="placeholder"></text>
+  </view>
+  
+  <!-- 内容区 -->
+  <view class="content">
+    <view class="search-section">
+      <input class="search-input" placeholder="搜索问题..." bindinput="bindSearchInput" value="{{searchKeyword}}"/>
+      <text class="search-icon">🔍</text>
+    </view>
+    
+    <view class="help-section">
+      <text class="section-title">常见问题</text>
+      
+      <view class="help-item" wx:for="{{helpItems}}" wx:key="id">
+        <view class="help-question" bindtap="toggleAnswer" data-id="{{item.id}}">
+          <text class="question-text">{{item.question}}</text>
+          <text class="toggle-icon">{{item.showAnswer ? '▼' : '▶'}}</text>
+        </view>
+        <view class="help-answer" wx:if="{{item.showAnswer}}">
+          <text class="answer-text">{{item.answer}}</text>
+        </view>
+      </view>
+    </view>
+    
+    <view class="contact-section">
+      <text class="section-title">其他问题</text>
+      <text class="contact-text">如果您有其他问题，可通过以下方式联系我们：</text>
+      <view class="contact-info">
+        <text class="contact-item">📞 电话：19506146511</text>
+        <text class="contact-item">📧 邮箱：2309129591@qq.com</text>
+      </view>
+      <button class="btn btn-primary" bindtap="goToContact">联系客服</button>
+    </view>
+  </view>
+</view>

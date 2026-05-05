@@ -1,0 +1,63 @@
+<view class="container">
+  <!-- 头部 -->
+  <view class="header">
+    <text class="back-btn" bindtap="goBack">← 返回</text>
+    <text class="header-title">星球详情</text>
+    <text class="placeholder"></text>
+  </view>
+  
+  <!-- 星球信息 -->
+  <view class="planet-info">
+    <view class="planet-header">
+      <text class="planet-type">{{planetInfo.type}}</text>
+      <text class="planet-status">{{planetInfo.status}}</text>
+    </view>
+    <text class="planet-content">{{planetInfo.content}}</text>
+    <view class="planet-meta">
+      <text class="planet-author">{{planetInfo.author}}</text>
+      <text class="planet-time">探索于 {{planetInfo.time}}</text>
+    </view>
+    <text class="planet-info-text">{{planetInfo.info}}</text>
+  </view>
+  
+  <!-- 互动区域 -->
+  <view class="interaction-section">
+    <text class="section-title">── 互动 ──</text>
+    <view class="action-buttons">
+      <view class="action-btn" bindtap="likePlanet">
+        <text class="action-icon">💚</text>
+        <text class="action-text">{{planetInfo.likes}}</text>
+        <text class="action-label">点赞</text>
+      </view>
+      <view class="action-btn" bindtap="commentPlanet">
+        <text class="action-icon">💬</text>
+        <text class="action-text">{{planetInfo.comments}}</text>
+        <text class="action-label">评论</text>
+      </view>
+      <view class="action-btn" bindtap="sharePlanet">
+        <text class="action-icon">🔄</text>
+        <text class="action-text">{{planetInfo.shares || 0}}</text>
+        <text class="action-label">分享</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 评论区域 -->
+  <view class="comments-section">
+    <text class="section-title">── 评论 ──</text>
+    <view class="comments-list">
+      <view class="comment-item" wx:for="{{comments}}" wx:key="id">
+        <text class="comment-author">{{item.author}}</text>
+        <text class="comment-time">{{item.time}}</text>
+        <text class="comment-content">{{item.content}}</text>
+      </view>
+      <view class="no-comments" wx:if="{{comments.length === 0}}">
+        <text class="no-comments-text">暂无评论，快来发表第一条评论吧！</text>
+      </view>
+    </view>
+    <view class="comment-input">
+      <input class="input" placeholder="写下你的评论..." bindinput="bindCommentInput" value="{{commentContent}}"/>
+      <button class="btn btn-primary" bindtap="submitComment">发布</button>
+    </view>
+  </view>
+</view>

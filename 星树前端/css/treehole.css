@@ -1,0 +1,264 @@
+/* 顶部导航 */
+.top-nav {
+    background-color: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.back-btn {
+    padding: 8px 16px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: #4a90e2;
+    cursor: pointer;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-icon {
+    font-size: 24px;
+}
+
+.logo-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.nav-placeholder {
+    width: 80px;
+}
+
+/* 主内容区 */
+.main-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 80px 20px 80px;
+}
+
+/* 树的容器 */
+.tree-container {
+    background: linear-gradient(180deg, #87CEEB 0%, #98FB98 100%);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.tree-trunk {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.tree-leaves {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    min-height: 200px;
+}
+
+.leaf {
+    font-size: 24px;
+    animation: growLeaf 0.5s ease-out;
+    position: relative;
+}
+
+@keyframes growLeaf {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.leaf-count {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+    font-size: 14px;
+}
+
+.leaf-count span {
+    font-weight: 600;
+    color: #4a90e2;
+}
+
+/* 输入区域 */
+.input-section {
+    background-color: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.treehole-input {
+    width: 100%;
+    min-height: 120px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 14px;
+    resize: none;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.treehole-input:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* 历史消息按钮 */
+.history-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.history-btn {
+    padding: 10px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.history-btn:hover {
+    border-color: #4a90e2;
+    color: #4a90e2;
+}
+
+/* 历史消息列表 */
+.history-list {
+    background-color: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.history-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.history-item {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.history-item:last-child {
+    margin-bottom: 0;
+}
+
+.history-content {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.history-time {
+    font-size: 12px;
+    color: #999;
+    margin-top: 10px;
+    display: block;
+}
+
+.delete-history {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #999;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.delete-history:hover {
+    color: #ff4444;
+}
+
+/* 底部导航 */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px 20px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.nav-item.active {
+    background-color: #f0f5ff;
+    color: #4a90e2;
+}
+
+.nav-icon {
+    font-size: 24px;
+}
+
+.nav-text {
+    font-size: 12px;
+}
+
+/* 响应式布局 */
+@media (max-width: 480px) {
+    .tree-container {
+        padding: 20px;
+    }
+
+    .leaf {
+        font-size: 20px;
+    }
+}

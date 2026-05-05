@@ -1,0 +1,214 @@
+/* 顶部导航 */
+.top-nav {
+    background-color: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.back-btn {
+    padding: 8px 16px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: #4a90e2;
+    cursor: pointer;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-icon {
+    font-size: 24px;
+}
+
+.logo-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.nav-placeholder {
+    width: 80px;
+}
+
+/* 主内容区 */
+.main-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 80px 20px 80px;
+}
+
+/* 帮助卡片 */
+.help-card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.help-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.help-header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.help-header p {
+    font-size: 14px;
+    color: #999;
+}
+
+/* FAQ部分 */
+.faq-section {
+    margin-bottom: 30px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.faq-header {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    cursor: pointer;
+}
+
+.faq-question {
+    flex: 1;
+    font-size: 16px;
+    color: #333;
+}
+
+.faq-arrow {
+    font-size: 20px;
+    color: #999;
+    transition: transform 0.3s;
+}
+
+.faq-item.active .faq-arrow {
+    transform: rotate(90deg);
+}
+
+.faq-content {
+    display: none;
+    padding-bottom: 20px;
+}
+
+.faq-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.faq-item.active .faq-content {
+    display: block;
+}
+
+/* 联系部分 */
+.contact-section {
+    background-color: #f9f9f9;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+}
+
+.contact-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact-section p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.contact-btn {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* 底部导航 */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px 20px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.nav-item.active {
+    background-color: #f0f5ff;
+    color: #4a90e2;
+}
+
+.nav-icon {
+    font-size: 24px;
+}
+
+.nav-text {
+    font-size: 12px;
+}
+
+/* 响应式布局 */
+@media (max-width: 480px) {
+    .help-card {
+        padding: 20px;
+    }
+    
+    .faq-header {
+        padding: 15px 0;
+    }
+}

@@ -1,0 +1,54 @@
+<view class="search-result-container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <input class="search-input" placeholder="搜索情绪、标签或用户" value="{{keyword}}" bindinput="bindSearchInput"/>
+    <text class="search-icon" bindtap="handleSearch">🔍</text>
+    <text class="cancel-btn" bindtap="handleCancel">取消</text>
+  </view>
+  
+  <!-- 搜索结果 -->
+  <view class="search-results">
+    <!-- 搜索提示 -->
+    <view class="search-tip" wx:if="{{!hasSearched}}">
+      <text class="tip-text">请输入关键词搜索</text>
+    </view>
+    
+    <!-- 无结果提示 -->
+    <view class="no-results" wx:elif="{{hasSearched && searchResults.length === 0}}">
+      <text class="no-results-text">未找到相关内容</text>
+    </view>
+    
+    <!-- 搜索结果列表 -->
+    <view class="result-list" wx:else>
+      <view class="result-item" wx:for="{{searchResults}}" wx:key="id">
+        <view class="item-header">
+          <text class="item-author">{{item.author}}</text>
+          <text class="item-time">{{item.time}}</text>
+          <text class="item-visibility">{{item.visibility}}</text>
+        </view>
+        <view class="item-content">
+          <text class="content-text">{{item.content}}</text>
+          <text class="content-tags" wx:for="{{item.tags}}" wx:key="index">#{{item}}</text>
+        </view>
+        <view class="item-actions">
+          <view class="action-item" bindtap="likePost" data-id="{{item.id}}">
+            <text class="action-icon">💚</text>
+            <text class="action-text">{{item.likes}}</text>
+          </view>
+          <view class="action-item" bindtap="commentPost" data-id="{{item.id}}">
+            <text class="action-icon">💬</text>
+            <text class="action-text">{{item.comments}}</text>
+          </view>
+          <view class="action-item" bindtap="sharePost" data-id="{{item.id}}">
+            <text class="action-icon">🔄</text>
+            <text class="action-text">{{item.shares}}</text>
+          </view>
+          <view class="action-item" bindtap="resonancePost" data-id="{{item.id}}">
+            <text class="action-icon">❤️</text>
+            <text class="action-text">{{item.resonance || 0}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

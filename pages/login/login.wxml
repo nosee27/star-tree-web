@@ -1,0 +1,105 @@
+<view class="container">
+  <!-- 头部Logo -->
+  <view class="logo-section">
+    <text class="logo-emoji">🪐</text>
+    <text class="logo-text">树洞的星球</text>
+    <text class="logo-subtext">TreeHole Planet</text>
+  </view>
+  
+  <!-- 欢迎语 -->
+  <view class="welcome-section">
+    <text class="welcome-text">在树洞的星球，安放你的每一颗情绪星球</text>
+  </view>
+  
+  <!-- 登录注册表单 -->
+  <view class="form-section">
+    <!-- 登录表单 -->
+    <view class="form-card" wx:if="{{activeTab === 'login'}}">
+      <text class="form-title">登录</text>
+      
+      <view class="input-group">
+        <text class="input-label">手机号/邮箱</text>
+        <input class="input" placeholder="请输入手机号或邮箱" bindinput="bindAccountInput" value="{{account}}"/>
+      </view>
+      
+      <view class="input-group">
+        <text class="input-label">验证码</text>
+        <view class="verification-code">
+          <input class="input" placeholder="请输入验证码" bindinput="bindVerificationCodeInput" value="{{verificationCode}}"/>
+          <button class="btn btn-secondary" bindtap="getLoginVerificationCode">获取验证码</button>
+        </view>
+      </view>
+      
+      <view class="form-options">
+        <view class="checkbox-group">
+          <checkbox value="remember" checked="{{rememberMe}}" bindchange="bindRememberMe"/>
+          <text class="checkbox-label">记住我</text>
+        </view>
+      </view>
+      
+      <button class="btn btn-primary" bindtap="login">登录</button>
+      
+      <view class="divider">
+        <text class="divider-text">── 或 ──</text>
+      </view>
+      
+      <view class="social-login">
+        <text class="social-icon" bindtap="loginWithWechat">📱</text>
+        <text class="social-label">微信</text>
+      </view>
+    </view>
+    
+    <!-- 注册表单 -->
+    <view class="form-card" wx:else>
+      <text class="form-title">注册</text>
+      
+      <view class="input-group">
+        <text class="input-label">手机号/邮箱</text>
+        <input class="input" placeholder="请输入手机号或邮箱" bindinput="bindRegisterAccountInput" value="{{registerAccount}}"/>
+      </view>
+      
+      <view class="input-group">
+        <text class="input-label">验证码</text>
+        <view class="verification-code">
+          <input class="input" placeholder="请输入验证码" bindinput="bindRegisterVerificationCodeInput" value="{{registerVerificationCode}}"/>
+          <button class="btn btn-secondary" bindtap="getVerificationCode">获取验证码</button>
+        </view>
+      </view>
+      
+      <view class="input-group">
+        <text class="input-label">密码</text>
+        <input class="input" placeholder="请输入密码（至少8位）" password="true" bindinput="bindRegisterPasswordInput" value="{{registerPassword}}"/>
+      </view>
+      
+      <button class="btn btn-primary" bindtap="register">注册</button>
+      
+      <view class="divider">
+        <text class="divider-text">── 或 ──</text>
+      </view>
+      
+      <view class="social-login">
+        <text class="social-icon" bindtap="registerWithWechat">📱</text>
+        <text class="social-label">微信</text>
+      </view>
+    </view>
+    
+    <!-- 切换登录/注册 -->
+    <view class="tab-switch">
+      <text class="tab-item {{activeTab === 'login' ? 'active' : ''}}" bindtap="switchToLogin">登录</text>
+      <text class="tab-item" bindtap="navigateToRegister">注册</text>
+    </view>
+  </view>
+  
+  <!-- 底部链接 -->
+  <view class="footer-section">
+    <text class="footer-link" bindtap="showUserAgreement">用户协议</text>
+    <text class="footer-link" bindtap="showPrivacyPolicy">隐私政策</text>
+    <text class="footer-link" bindtap="showContact">联系我们</text>
+    <text class="footer-link" bindtap="showHelp">帮助中心</text>
+  </view>
+  
+  <!-- 安全提示 -->
+  <view class="security-section">
+    <text class="security-text">🔒 匿名保护 · 数据加密 · 安全存储 · 境内服务器</text>
+  </view>
+</view>

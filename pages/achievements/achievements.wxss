@@ -1,0 +1,167 @@
+.container {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding: 20rpx;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.header-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.back-btn {
+  font-size: 32rpx;
+  color: #666;
+  padding: 10rpx;
+}
+
+.stats-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+}
+
+.stat-card {
+  flex: 1;
+  background-color: white;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  text-align: center;
+  margin: 0 5rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 5rpx;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.achievements-section {
+  margin-bottom: 30rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  color: #666;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.achievements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.achievement-item {
+  background-color: white;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.achievement-icon {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+}
+
+.achievement-icon.earned {
+  background-color: #FFF3CD;
+  border: 2rpx solid #FFC107;
+}
+
+.achievement-icon.unearned {
+  background-color: #E2E3E5;
+  border: 2rpx solid #ADB5BD;
+  opacity: 0.7;
+}
+
+.achievement-icon .icon {
+  font-size: 50rpx;
+}
+
+.achievement-info {
+  flex: 1;
+}
+
+.achievement-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5rpx;
+  display: block;
+}
+
+.achievement-desc {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+  display: block;
+}
+
+.achievement-progress {
+  font-size: 20rpx;
+  color: #999;
+  display: block;
+}
+
+.achievement-date {
+  font-size: 20rpx;
+  color: #999;
+  display: block;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+}
+
+.empty-icon {
+  font-size: 120rpx;
+  margin-bottom: 30rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 30rpx;
+}
+
+.btn {
+  padding: 15rpx 40rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #1E88E5;
+  color: white;
+  border: none;
+}

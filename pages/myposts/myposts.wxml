@@ -1,0 +1,60 @@
+<view class="container">
+  <!-- 头部导航 -->
+  <view class="header">
+    <text class="header-title">我的发布</text>
+    <text class="header-back" bindtap="goBack">←</text>
+  </view>
+  
+  <!-- 发布统计 -->
+  <view class="stats-section">
+    <view class="stat-item">
+      <view class="stat-number">{{posts.length}}</view>
+      <view class="stat-label">发布总数</view>
+    </view>
+  </view>
+  
+  <!-- 发布列表 -->
+  <view class="posts-section">
+    <view class="section-title">── 我的发布 ──</view>
+    
+    <view class="posts-list" wx:if="{{posts.length > 0}}">
+      <view class="post-item" wx:for="{{posts}}" wx:key="id">
+        <view class="post-header">
+          <text class="post-time">{{item.time}}</text>
+          <text class="post-visibility">{{item.visibility}}</text>
+        </view>
+        <text class="post-content">{{item.content}}</text>
+        
+        <!-- 图片显示 -->
+        <view class="post-images" wx:if="{{item.images && item.images.length > 0}}">
+          <image class="post-image" wx:for="{{item.images}}" wx:key="index" src="{{item}}"></image>
+        </view>
+        
+        <!-- 标签 -->
+        <view class="post-tags" wx:if="{{item.tags && item.tags.length > 0}}">
+          <text class="post-tag" wx:for="{{item.tags}}" wx:key="index">#{{item}}</text>
+        </view>
+        
+        <!-- 互动数据 -->
+        <view class="post-stats">
+          <text class="stat-item">❤️ {{item.likes}}</text>
+          <text class="stat-item">💬 {{item.comments}}</text>
+          <text class="stat-item">❤️ {{item.resonance || 0}}</text>
+        </view>
+        
+        <!-- 操作按钮 -->
+        <view class="post-actions">
+          <text class="action-btn" bindtap="editPost" data-id="{{item.id}}">编辑</text>
+          <text class="action-btn delete" bindtap="deletePost" data-id="{{item.id}}">删除</text>
+        </view>
+      </view>
+    </view>
+    
+    <view class="empty-state" wx:else>
+      <text class="empty-icon">📝</text>
+      <text class="empty-text">还没有发布内容</text>
+      <text class="empty-hint">去首页分享你的情绪吧！</text>
+      <button class="btn btn-primary" bindtap="goToHome">去发布</button>
+    </view>
+  </view>
+</view>

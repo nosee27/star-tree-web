@@ -1,0 +1,135 @@
+<view class="container">
+  <!-- 头部 -->
+  <view class="header">
+    <text class="header-close" bindtap="close">✕</text>
+    <text class="header-title">发布情绪</text>
+    <text class="header-placeholder"></text>
+  </view>
+  
+  <!-- 用户信息 -->
+  <view class="user-info">
+    <text class="user-name">👤 流浪的星球#2847</text>
+    <view class="anonymous-toggle">
+      <text class="toggle-label">🔒 匿名发布</text>
+      <view class="toggle-switch {{anonymous ? 'active' : ''}}" bindtap="toggleAnonymous">
+        <view class="toggle-circle"></view>
+      </view>
+      <text class="toggle-status">{{anonymous ? '[●] 开启' : '[○] 关闭'}}</text>
+    </view>
+  </view>
+  
+  <!-- 内容输入 -->
+  <view class="content-input">
+    <textarea class="textarea" placeholder="分享你的心情..." bindinput="bindContentInput" value="{{content}}" maxlength="1000"></textarea>
+    <text class="word-count">{{content.length}}/1000</text>
+  </view>
+  
+  <!-- 已选择的图片 -->
+  <view class="selected-images" wx:if="{{selectedImages.length > 0}}">
+    <view class="image-item" wx:for="{{selectedImages}}" wx:key="index">
+      <image src="{{item}}" class="selected-image" bindtap="previewImage" data-index="{{index}}"></image>
+      <text class="delete-image" bindtap="deleteImage" data-index="{{index}}">×</text>
+    </view>
+  </view>
+  
+  <!-- 已选择的视频 -->
+  <view class="selected-video" wx:if="{{selectedVideo}}">
+    <video src="{{selectedVideo}}" class="selected-video-preview" controls></video>
+    <text class="delete-video" bindtap="deleteVideo">×</text>
+  </view>
+  
+  <!-- 情绪选择 -->
+  <view class="emotion-section">
+    <text class="section-title">今天你的星球天气如何？(可多选)</text>
+    <view class="emotion-grid">
+      <view class="emotion-item" bindtap="selectEmotion" data-emotion="😊">
+        <text class="emotion-icon">😊</text>
+        <text class="emotion-label">晴朗</text>
+      </view>
+      <view class="emotion-item" bindtap="selectEmotion" data-emotion="😢">
+        <text class="emotion-icon">😢</text>
+        <text class="emotion-label">雨天</text>
+      </view>
+      <view class="emotion-item" bindtap="selectEmotion" data-emotion="😠">
+        <text class="emotion-icon">😠</text>
+        <text class="emotion-label">雷暴</text>
+      </view>
+      <view class="emotion-item" bindtap="selectEmotion" data-emotion="😰">
+        <text class="emotion-icon">😰</text>
+        <text class="emotion-label">迷雾</text>
+      </view>
+      <view class="emotion-item" bindtap="selectEmotion" data-emotion="😴">
+        <text class="emotion-icon">😴</text>
+        <text class="emotion-label">黑夜</text>
+      </view>
+      <view class="emotion-item" bindtap="selectEmotion" data-emotion="🤗">
+        <text class="emotion-icon">🤗</text>
+        <text class="emotion-label">温暖</text>
+      </view>
+      <view class="emotion-item" bindtap="selectEmotion" data-emotion="🌧️">
+        <text class="emotion-icon">🌧️</text>
+        <text class="emotion-label">阴天</text>
+      </view>
+    </view>
+    <view class="emotion-grid">
+      <view class="emotion-item" bindtap="selectEmotion" data-emotion="⚡">
+        <text class="emotion-icon">⚡</text>
+        <text class="emotion-label">闪电</text>
+      </view>
+      <view class="emotion-item" bindtap="selectEmotion" data-emotion="🍃">
+        <text class="emotion-icon">🍃</text>
+        <text class="emotion-label">微风</text>
+      </view>
+      <view class="emotion-item" bindtap="selectEmotion" data-emotion="🎉">
+        <text class="emotion-icon">🎉</text>
+        <text class="emotion-label">#庆典</text>
+      </view>
+      <view class="emotion-item" bindtap="selectEmotion" data-emotion="💪">
+        <text class="emotion-icon">💪</text>
+        <text class="emotion-label">#加油</text>
+      </view>
+      <view class="emotion-item" bindtap="selectEmotion" data-emotion="#">
+        <text class="emotion-icon">#</text>
+        <text class="emotion-label">#添加</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 功能按钮 -->
+  <view class="feature-buttons">
+    <text class="feature-btn" bindtap="addImage">🖼️ 添加图片</text>
+    <text class="feature-btn" bindtap="addLocation">📍 添加位置</text>
+    <text class="feature-btn" bindtap="addTopic">🔗 添加话题</text>
+    <text class="feature-btn" bindtap="addVideo">🎬 添加视频</text>
+  </view>
+  
+  <!-- 发布设置 -->
+  <view class="settings-section">
+    <view class="setting-item">
+      <text class="setting-label">👁️ 仅自己可见</text>
+      <view class="setting-switch {{private ? 'active' : ''}}" bindtap="togglePrivate">
+        <view class="toggle-circle"></view>
+      </view>
+      <text class="setting-status">{{private ? '[●] 开启' : '[○] 关闭'}}</text>
+    </view>
+    <view class="setting-item">
+      <text class="setting-label">🛡️ 开启内容审核</text>
+      <view class="setting-switch {{audit ? 'active' : ''}}" bindtap="toggleAudit">
+        <view class="toggle-circle"></view>
+      </view>
+      <text class="setting-status">{{audit ? '[●] 开启' : '[○] 关闭'}}</text>
+    </view>
+    <view class="setting-item">
+      <text class="setting-label">💬 允许评论</text>
+      <view class="setting-switch {{comments ? 'active' : ''}}" bindtap="toggleComments">
+        <view class="toggle-circle"></view>
+      </view>
+      <text class="setting-status">{{comments ? '[●] 开启' : '[○] 关闭'}}</text>
+    </view>
+  </view>
+  
+  <!-- 发布按钮 -->
+  <view class="publish-button">
+    <button class="btn btn-primary" bindtap="publish">发布 📤</button>
+  </view>
+</view>

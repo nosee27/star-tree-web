@@ -1,0 +1,72 @@
+﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星树 - 成就徽章</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/achievements.css">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="top-nav">
+        <div class="nav-container">
+            <button class="back-btn" onclick="goBack()">← 返回</button>
+            <div class="logo">
+                <span class="logo-icon">🏆</span>
+                <span class="logo-text">成就徽章</span>
+            </div>
+            <span class="nav-placeholder"></span>
+        </div>
+    </header>
+
+    <!-- 统计信息 -->
+    <div class="stats-section">
+        <div class="stat-item">
+            <span class="stat-value">15</span>
+            <span class="stat-label">已获得徽章</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value">32</span>
+            <span class="stat-label">总徽章数</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value">46%</span>
+            <span class="stat-label">完成度</span>
+        </div>
+    </div>
+
+    <!-- 徽章列表 -->
+    <div class="badges-section">
+        <div class="badges-grid" id="badgesGrid">
+            <!-- 徽章将动态生成 -->
+        </div>
+    </div>
+
+    <!-- 底部导航 -->
+    <nav class="bottom-nav">
+        <div class="nav-item" onclick="redirectToIndex()">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-text">首页</span>
+        </div>
+        <div class="nav-item" onclick="redirectToMatch()">
+            <span class="nav-icon">🤝</span>
+            <span class="nav-text">契约匹配</span>
+        </div>
+        <div class="nav-item" onclick="redirectToGarden()">
+            <span class="nav-icon">🌻</span>
+            <span class="nav-text">情绪花园</span>
+        </div>
+        <div class="nav-item" onclick="redirectToTreehole()">
+            <span class="nav-icon">🌳</span>
+            <span class="nav-text">树洞倾诉</span>
+        </div>
+        <div class="nav-item" onclick="redirectToProfile()">
+            <span class="nav-icon">👤</span>
+            <span class="nav-text">我的</span>
+        </div>
+    </nav>
+
+    <script src="js/achievements.js"></script>
+</body>
+</html>

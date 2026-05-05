@@ -1,0 +1,118 @@
+﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星树 - 帮助中心</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/help.css">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="top-nav">
+        <div class="nav-container">
+            <button class="back-btn" onclick="goBack()">← 返回</button>
+            <div class="logo">
+                <span class="logo-icon">❓</span>
+                <span class="logo-text">帮助中心</span>
+            </div>
+            <span class="nav-placeholder"></span>
+        </div>
+    </header>
+
+    <!-- 帮助内容 -->
+    <main class="main-content">
+        <div class="help-card">
+            <div class="help-header">
+                <span class="header-icon">💡</span>
+                <h2>帮助中心</h2>
+                <p>遇到问题？这里有您需要的答案</p>
+            </div>
+            
+            <div class="faq-section">
+                <div class="faq-item" onclick="toggleFaq(1)">
+                    <div class="faq-header">
+                        <span class="faq-question">如何发布情绪内容？</span>
+                        <span class="faq-arrow">›</span>
+                    </div>
+                    <div class="faq-content" id="faq1">
+                        <p>点击首页右下角的"+"按钮，进入发布页面。在文本框中输入您的心情，选择合适的标签和可见范围，然后点击发布即可。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFaq(2)">
+                    <div class="faq-header">
+                        <span class="faq-question">树洞功能如何使用？</span>
+                        <span class="faq-arrow">›</span>
+                    </div>
+                    <div class="faq-content" id="faq2">
+                        <p>进入树洞页面，在输入框中写下您想倾诉的内容，点击"投入树洞"按钮。每投入一条消息，树上就会长出一片叶子，最多可以长到999片叶子。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFaq(3)">
+                    <div class="faq-header">
+                        <span class="faq-question">如何获得成就徽章？</span>
+                        <span class="faq-arrow">›</span>
+                    </div>
+                    <div class="faq-content" id="faq3">
+                        <p>完成特定的任务和活动即可获得成就徽章。例如：发布10条内容、探索5颗星球、获得100个共鸣等。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFaq(4)">
+                    <div class="faq-header">
+                        <span class="faq-question">忘记密码怎么办？</span>
+                        <span class="faq-arrow">›</span>
+                    </div>
+                    <div class="faq-content" id="faq4">
+                        <p>在登录页面点击"忘记密码"，输入您的手机号，获取验证码后重置密码即可。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFaq(5)">
+                    <div class="faq-header">
+                        <span class="faq-question">如何联系客服？</span>
+                        <span class="faq-arrow">›</span>
+                    </div>
+                    <div class="faq-content" id="faq5">
+                        <p>您可以通过联系我们页面拨打客服电话：19506146511，或发送邮件至 2309129591@qq.com。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-section">
+                <h3>仍有疑问？</h3>
+                <p>如果您没有找到答案，请联系我们：</p>
+                <button class="contact-btn" onclick="redirectToContact()">联系客服</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部导航 -->
+    <nav class="bottom-nav">
+        <div class="nav-item" onclick="redirectToIndex()">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-text">首页</span>
+        </div>
+        <div class="nav-item" onclick="redirectToMatch()">
+            <span class="nav-icon">🤝</span>
+            <span class="nav-text">契约匹配</span>
+        </div>
+        <div class="nav-item" onclick="redirectToGarden()">
+            <span class="nav-icon">🌻</span>
+            <span class="nav-text">情绪花园</span>
+        </div>
+        <div class="nav-item" onclick="redirectToTreehole()">
+            <span class="nav-icon">🌳</span>
+            <span class="nav-text">树洞倾诉</span>
+        </div>
+        <div class="nav-item" onclick="redirectToProfile()">
+            <span class="nav-icon">👤</span>
+            <span class="nav-text">我的</span>
+        </div>
+    </nav>
+
+    <script src="js/help.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<view class="profile-container">
+  <!-- 个人信息区域 -->
+  <view class="profile-header">
+    <view class="user-info">
+      <view class="avatar">🪐</view>
+      <view class="user-details">
+        <view class="username">流浪的星球#2847</view>
+        <view class="join-date">加入 2026年1月</view>
+        <view class="badge">🌟 温暖使者</view>
+      </view>
+    </view>
+    
+    <!-- 统计数据 -->
+    <view class="stats-container">
+      <view class="stat-item" bindtap="navigateToMyPosts">
+        <view class="stat-number">127</view>
+        <view class="stat-label">发布</view>
+      </view>
+      <view class="stat-item" bindtap="navigateToMyPlanets">
+        <view class="stat-number">45</view>
+        <view class="stat-label">星球</view>
+      </view>
+      <view class="stat-item" bindtap="navigateToMyResonance">
+        <view class="stat-number">892</view>
+        <view class="stat-label">共鸣</view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 功能菜单 -->
+  <view class="menu-section">
+    <view class="menu-title">─── 功能菜单 ───</view>
+    
+    <view class="menu-list">
+      <view class="menu-item" bindtap="navigateToReport">
+        <view class="menu-icon">📊</view>
+        <view class="menu-text">我的情绪报告</view>
+        <view class="menu-arrow">→</view>
+      </view>
+      
+      <view class="menu-item" bindtap="navigateToMyPlanets">
+        <view class="menu-icon">🪐</view>
+        <view class="menu-text">我的星球</view>
+        <view class="menu-arrow">→</view>
+      </view>
+      
+      <view class="menu-item" bindtap="navigateToMyTreehole">
+        <view class="menu-icon">🌳</view>
+        <view class="menu-text">我的树洞</view>
+        <view class="menu-arrow">→</view>
+      </view>
+      
+      <view class="menu-item" bindtap="navigateToAchievements">
+        <view class="menu-icon">🏆</view>
+        <view class="menu-text">成就徽章</view>
+        <view class="menu-arrow">→</view>
+      </view>
+      
+      <view class="menu-item" bindtap="toggleNightMode">
+        <view class="menu-icon">🌙</view>
+        <view class="menu-text">夜间模式</view>
+        <view class="menu-toggle">[●]</view>
+      </view>
+      
+      <view class="menu-item" bindtap="navigateToResources">
+        <view class="menu-icon">📞</view>
+        <view class="menu-text">心理援助资源</view>
+        <view class="menu-arrow">→</view>
+      </view>
+      
+      <view class="menu-item" bindtap="navigateToTerms">
+        <view class="menu-icon">📄</view>
+        <view class="menu-text">用户协议 & 隐私政策</view>
+        <view class="menu-arrow">→</view>
+      </view>
+      
+      <view class="menu-item logout" bindtap="logout">
+        <view class="menu-icon">🚪</view>
+        <view class="menu-text">退出登录</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/register/register",
+    "pages/index/index",
+    "pages/treehole/treehole",
+    "pages/explore/explore",
+    "pages/report/report",
+    "pages/profile/profile",
+    "pages/publish/publish",
+    "pages/message/message",
+    "pages/search/search",
+    "pages/myplanets/myplanets",
+    "pages/achievements/achievements",
+    "pages/agreement/agreement",
+    "pages/privacy/privacy",
+    "pages/contact/contact",
+    "pages/help/help",
+    "pages/webview/webview"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "树洞的星球",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/treehole/treehole",
+        "text": "树洞"
+      },
+      {
+        "pagePath": "pages/explore/explore",
+        "text": "探索"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

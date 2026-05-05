@@ -1,0 +1,42 @@
+<view class="container">
+  <!-- 头部 -->
+  <view class="header">
+    <text class="back-btn" bindtap="goBack">← 返回</text>
+    <text class="header-title">联系我们</text>
+    <text class="placeholder"></text>
+  </view>
+  
+  <!-- 内容区 -->
+  <view class="content">
+    <view class="contact-card">
+      <text class="contact-title">联系信息</text>
+      <view class="contact-item">
+        <text class="contact-icon">📞</text>
+        <text class="contact-label">电话</text>
+        <text class="contact-value" bindtap="makePhoneCall">19506146511</text>
+      </view>
+      <view class="contact-item">
+        <text class="contact-icon">📧</text>
+        <text class="contact-label">邮箱</text>
+        <text class="contact-value" bindtap="sendEmail">2309129591@qq.com</text>
+      </view>
+      <view class="contact-item">
+        <text class="contact-icon">📍</text>
+        <text class="contact-label">地址</text>
+        <text class="contact-value">山东省青岛市胶州市</text>
+      </view>
+    </view>
+    
+    <view class="contact-card">
+      <text class="contact-title">工作时间</text>
+      <text class="contact-content">周一至周五：9:00 - 18:00</text>
+      <text class="contact-content">周六至周日：10:00 - 16:00</text>
+    </view>
+    
+    <view class="contact-card">
+      <text class="contact-title">留言反馈</text>
+      <textarea class="message-input" placeholder="请输入您的问题或建议..." bindinput="bindMessageInput"></textarea>
+      <button class="btn btn-primary" bindtap="sendMessage">提交留言</button>
+    </view>
+  </view>
+</view>
