@@ -1,26 +1,18 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "backend/server.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["backend/**"]
-      }
-    },
-    {
-      "src": "backend/public/**",
-      "use": "@vercel/static"
+  "functions": {
+    "api/index.js": {
+      "runtime": "@vercel/node@3"
     }
-  ],
+  },
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "backend/server.js"
+      "dest": "/api/index.js"
     },
     {
       "src": "/(.*)",
-      "dest": "backend/public/$1"
+      "dest": "/backend/public/$1"
     }
   ],
   "installCommand": "cd backend && npm install"
