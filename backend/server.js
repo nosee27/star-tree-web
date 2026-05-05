@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const connectDB = require('./config/db');
 
 const userRoutes = require('./routes/userRoutes');
@@ -22,8 +23,12 @@ app.use('/api/posts', commentRoutes);
 app.use('/api/match', matchRoutes);
 app.use('/api/plants', plantRoutes);
 
-app.get('/', (req, res) => {
-    res.send('星树后端服务运行中...');
+// 提供前端静态文件
+app.use(express.static(path.join(__dirname, 'public')));
+
+// 所有非 API 请求返回前端页面
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 const PORT = process.env.PORT || 5000;

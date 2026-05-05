@@ -1,0 +1,118 @@
+﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星树 - 首页</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="top-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">⭐</span>
+                <span class="logo-text">星树</span>
+            </div>
+            <div class="slogan">
+                <span>Lose yourself to find yourself.</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 发布心情入口 -->
+    <div class="publish-entry">
+        <div class="publish-prompt" onclick="showPublishModal()">
+            <span class="publish-icon">✏️</span>
+            <span class="publish-text">点击宣泄你的情绪...</span>
+        </div>
+    </div>
+
+    <!-- 内容列表 -->
+    <main class="main-content">
+        <div id="contentList" class="content-list">
+            <!-- 动态内容 -->
+        </div>
+    </main>
+
+    <!-- 加载更多 -->
+    <div class="load-more">
+        <button class="btn btn-secondary" onclick="loadMore()">加载更多</button>
+    </div>
+
+    <!-- 发布模态框 -->
+    <div id="publishModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>发布心情</h2>
+                <button class="close-btn" onclick="closePublishModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <textarea id="publishContent" class="publish-textarea" placeholder="说说你的心情..."></textarea>
+                <div class="publish-actions">
+                    <div class="action-row">
+                        <button class="action-btn" onclick="addEmotion('😊')">😊</button>
+                        <button class="action-btn" onclick="addEmotion('😢')">😢</button>
+                        <button class="action-btn" onclick="addEmotion('😰')">😰</button>
+                        <button class="action-btn" onclick="addEmotion('😤')">😤</button>
+                        <button class="action-btn" onclick="addEmotion('😌')">😌</button>
+                    </div>
+                    <div class="action-row">
+                        <button class="action-btn" onclick="selectImage()">📷</button>
+                        <button class="action-btn" onclick="addLocation()">📍</button>
+                        <button class="action-btn" onclick="addVideo()">🎬</button>
+                        <button class="action-btn" onclick="addTopic()">🏷️</button>
+                    </div>
+                </div>
+                <div id="selectedImages" class="selected-images"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="publish()">发布</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 评论模态框 -->
+    <div id="commentModal" class="modal">
+        <div class="modal-content" style="max-width: 380px;">
+            <div class="modal-header">
+                <h2>发表评论</h2>
+                <button class="close-btn" onclick="closeCommentModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <textarea id="commentContent" class="publish-textarea" placeholder="写下你的评论..."></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="submitComment()">发表</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航 -->
+    <nav class="bottom-nav">
+        <div class="nav-item active" onclick="redirectToIndex()">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-text">首页</span>
+        </div>
+        <div class="nav-item" onclick="redirectToMatch()">
+            <span class="nav-icon">🤝</span>
+            <span class="nav-text">契约匹配</span>
+        </div>
+        <div class="nav-item" onclick="redirectToGarden()">
+            <span class="nav-icon">🌻</span>
+            <span class="nav-text">情绪花园</span>
+        </div>
+        <div class="nav-item" onclick="redirectToTreehole()">
+            <span class="nav-icon">🌳</span>
+            <span class="nav-text">树洞倾诉</span>
+        </div>
+        <div class="nav-item" onclick="redirectToProfile()">
+            <span class="nav-icon">👤</span>
+            <span class="nav-text">我的</span>
+        </div>
+    </nav>
+
+    <script src="js/index.js"></script>
+</body>
+</html>
