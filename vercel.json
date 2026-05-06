@@ -2,14 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "public/**/*",
-      "use": "@vercel/static"
+      "src": "backend/server.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["backend/**"]
+      }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/public/$1"
+      "dest": "backend/server.js"
     }
-  ]
+  ],
+  "env": {
+    "MONGO_URI": "mongodb+srv://2309129591_db_user:G1nO1mSdSXTaRYkf@cluster0.ixuhjhr.mongodb.net/?appName=Cluster0",
+    "JWT_SECRET": "star_tree_secret_key_2024",
+    "PORT": "10000"
+  }
 }

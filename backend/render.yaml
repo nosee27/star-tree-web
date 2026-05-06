@@ -9,6 +9,6 @@ services:
       - key: PORT
         value: 10000
       - key: MONGO_URI
-        sync: false
+        value: mongodb+srv://2309129591_db_user:G1nO1mSdSXTaRYkf@cluster0.ixuhjhr.mongodb.net/?appName=Cluster0
       - key: JWT_SECRET
-        sync: false
+        value: star_tree_secret_key_2024
