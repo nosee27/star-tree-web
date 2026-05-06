@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星树 - 契约匹配</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/match.css">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="top-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">⭐</span>
+                <span class="logo-text">星树</span>
+            </div>
+            <div class="slogan">
+                <span>Lose yourself to find yourself.</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 匹配状态区域 -->
+    <main class="main-content">
+        <!-- 心情选择 -->
+        <div class="mood-section" id="moodSection">
+            <div class="section-header">
+                <span class="section-icon">💭</span>
+                <h3>选择当前心情</h3>
+                <p>选择最能描述你现在心情的标签</p>
+            </div>
+            <div class="mood-grid">
+                <div class="mood-item active" data-mood="happy" onclick="selectMood('happy')">
+                    <span class="mood-emoji">😊</span>
+                    <span class="mood-name">开心</span>
+                </div>
+                <div class="mood-item" data-mood="sad" onclick="selectMood('sad')">
+                    <span class="mood-emoji">😢</span>
+                    <span class="mood-name">难过</span>
+                </div>
+                <div class="mood-item" data-mood="anxious" onclick="selectMood('anxious')">
+                    <span class="mood-emoji">😰</span>
+                    <span class="mood-name">焦虑</span>
+                </div>
+                <div class="mood-item" data-mood="angry" onclick="selectMood('angry')">
+                    <span class="mood-emoji">😤</span>
+                    <span class="mood-name">生气</span>
+                </div>
+                <div class="mood-item" data-mood="lonely" onclick="selectMood('lonely')">
+                    <span class="mood-emoji">🥺</span>
+                    <span class="mood-name">孤独</span>
+                </div>
+                <div class="mood-item" data-mood="confused" onclick="selectMood('confused')">
+                    <span class="mood-emoji">😕</span>
+                    <span class="mood-name">困惑</span>
+                </div>
+                <div class="mood-item" data-mood="tired" onclick="selectMood('tired')">
+                    <span class="mood-emoji">😴</span>
+                    <span class="mood-name">疲惫</span>
+                </div>
+                <div class="mood-item" data-mood="hopeful" onclick="selectMood('hopeful')">
+                    <span class="mood-emoji">🌟</span>
+                    <span class="mood-name">期待</span>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-full" onclick="startMatching()">开始匹配</button>
+        </div>
+
+        <!-- 匹配队列 -->
+        <div class="matching-section" id="matchingSection" style="display: none;">
+            <div class="matching-header">
+                <span class="matching-icon">🔄</span>
+                <h3>正在寻找匹配...</h3>
+                <p>请保持耐心，我们正在为您寻找心灵契合的伙伴</p>
+            </div>
+            <div class="matching-animation">
+                <div class="circle-ring ring1"></div>
+                <div class="circle-ring ring2"></div>
+                <div class="circle-ring ring3"></div>
+                <div class="matching-avatar">🌙</div>
+            </div>
+            <div class="matching-info">
+                <span>在线等待匹配: <span id="waitingCount">128</span> 人</span>
+                <span>预计等待时间: <span id="waitTime">约 2-5 分钟</span></span>
+            </div>
+            <button class="btn btn-secondary btn-full" onclick="cancelMatching()">取消匹配</button>
+        </div>
+
+        <!-- 匹配成功 -->
+        <div class="match-success-section" id="matchSuccessSection" style="display: none;">
+            <div class="success-header">
+                <span class="success-icon">🎉</span>
+                <h3>匹配成功！</h3>
+                <p>找到了与您心灵契合的伙伴</p>
+            </div>
+            <div class="partner-info">
+                <div class="partner-avatar">🌟</div>
+                <div class="partner-detail">
+                    <span class="partner-name">✨ 星树#5678</span>
+                    <span class="partner-mood">当前心情: 😊 开心</span>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-full" onclick="showContract()">查看契约书</button>
+        </div>
+    </main>
+
+    <!-- 契约书弹窗 -->
+    <div id="contractModal" class="modal" style="display: none;">
+        <div class="modal-content contract-content">
+            <div class="contract-header">
+                <span class="contract-icon">📜</span>
+                <h2>心灵契约书</h2>
+            </div>
+            <div class="contract-body">
+                <div class="contract-item">
+                    <input type="checkbox" id="agree1" class="contract-checkbox">
+                    <label for="agree1">我承诺真诚倾听对方的倾诉</label>
+                </div>
+                <div class="contract-item">
+                    <input type="checkbox" id="agree2" class="contract-checkbox">
+                    <label for="agree2">我承诺尊重对方的隐私和感受</label>
+                </div>
+                <div class="contract-item">
+                    <input type="checkbox" id="agree3" class="contract-checkbox">
+                    <label for="agree3">我承诺不泄露对话内容给第三方</label>
+                </div>
+                <div class="contract-item">
+                    <input type="checkbox" id="agree4" class="contract-checkbox">
+                    <label for="agree4">我承诺遵守平台规则，不发表违规内容</label>
+                </div>
+            </div>
+            <div class="contract-footer">
+                <button class="btn btn-secondary" onclick="closeContract()">返回</button>
+                <button class="btn btn-primary" onclick="confirmContract()">确认契约</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航 -->
+    <nav class="bottom-nav">
+        <div class="nav-item" onclick="redirectToIndex()">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-text">首页</span>
+        </div>
+        <div class="nav-item active" onclick="redirectToMatch()">
+            <span class="nav-icon">🤝</span>
+            <span class="nav-text">契约匹配</span>
+        </div>
+        <div class="nav-item" onclick="redirectToGarden()">
+            <span class="nav-icon">🌻</span>
+            <span class="nav-text">情绪花园</span>
+        </div>
+        <div class="nav-item" onclick="redirectToTreehole()">
+            <span class="nav-icon">🌳</span>
+            <span class="nav-text">树洞倾诉</span>
+        </div>
+        <div class="nav-item" onclick="redirectToProfile()">
+            <span class="nav-icon">👤</span>
+            <span class="nav-text">我的</span>
+        </div>
+    </nav>
+
+    <script src="js/match.js"></script>
+</body>
+</html>

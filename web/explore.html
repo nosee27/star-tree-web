@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星数 - 探索</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/explore.css">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="top-nav">
+        <div class="nav-container">
+            <button class="back-btn" onclick="goBack()">�?返回</button>
+            <div class="logo">
+                <span class="logo-icon">🔭</span>
+                <span class="logo-text">探索星球</span>
+            </div>
+            <span class="nav-placeholder"></span>
+        </div>
+    </header>
+
+    <!-- 统计信息 -->
+    <div class="stats-section">
+        <div class="stat-item">
+            <span class="stat-value" id="exploreCount">0</span>
+            <span class="stat-label">已探索星�?/span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="signalCount">0</span>
+            <span class="stat-label">发送信�?/span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="discoverCount">0</span>
+            <span class="stat-label">发现新星�?/span>
+        </div>
+    </div>
+
+    <!-- 探索按钮 -->
+    <div class="explore-section">
+        <button class="explore-btn" onclick="explorePlanet()">
+            <span class="explore-icon">🚀</span>
+            <span class="explore-text">探索未知星球</span>
+        </button>
+    </div>
+
+    <!-- 探索结果 -->
+    <div class="result-section" id="resultSection" style="display: none;">
+        <div class="planet-card">
+            <div class="planet-header">
+                <span class="planet-emoji" id="planetEmoji">🪐</span>
+                <span class="planet-name" id="planetName">未知星球</span>
+            </div>
+            <div class="planet-content">
+                <p id="planetContent"></p>
+            </div>
+            <div class="planet-actions">
+                <button class="action-btn" onclick="sendSignal()">📡 发送信�?/button>
+                <button class="action-btn" onclick="likePlanet()">💚 点赞</button>
+                <button class="action-btn" onclick="commentPlanet()">💬 评论</button>
+            </div>
+            <div class="planet-comments" id="planetComments">
+                <!-- 评论列表 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 探索历史 -->
+    <div class="history-section">
+        <h3 class="section-title">🌌 探索历史</h3>
+        <div class="history-grid" id="historyGrid">
+            <!-- 探索历史将动态生�?-->
+        </div>
+    </div>
+
+    <!-- 底部导航 -->
+    <nav class="bottom-nav">
+        <div class="nav-item" onclick="redirectToIndex()">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-text">首页</span>
+        </div>
+        <div class="nav-item" onclick="redirectToTreehole()">
+            <span class="nav-icon">🌳</span>
+            <span class="nav-text">树洞</span>
+        </div>
+        <div class="nav-item active">
+            <span class="nav-icon">🔭</span>
+            <span class="nav-text">探索</span>
+        </div>
+        <div class="nav-item" onclick="redirectToProfile()">
+            <span class="nav-icon">👤</span>
+            <span class="nav-text">我的</span>
+        </div>
+    </nav>
+
+    <script src="js/explore.js"></script>
+</body>
+</html>

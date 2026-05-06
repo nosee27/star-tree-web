@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星树 - 心灵对话</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="chat-header">
+        <div class="header-content">
+            <button class="back-btn" onclick="goBack()">←</button>
+            <div class="partner-info">
+                <div class="partner-avatar">🌟</div>
+                <div class="partner-detail">
+                    <span class="partner-name">✨ 星树#5678</span>
+                    <span class="partner-status online">在线</span>
+                </div>
+            </div>
+            <button class="more-btn" onclick="showMore()">⋮</button>
+        </div>
+    </header>
+
+    <!-- 深夜模式提示 -->
+    <div class="night-prompt" id="nightPrompt" style="display: none;">
+        <span>🌙 深夜时段，暂时匹配不到真人</span>
+        <button class="ai-mode-btn" onclick="enableAIMode()">开启AI陪伴模式</button>
+    </div>
+
+    <!-- 聊天消息区域 -->
+    <main class="chat-content" id="chatContent">
+        <!-- 系统消息 -->
+        <div class="system-message">
+            <span>🔒 已建立加密聊天通道</span>
+            <span class="time">20:30</span>
+        </div>
+        
+        <!-- 对方消息 -->
+        <div class="message-item other">
+            <div class="message-avatar">🌟</div>
+            <div class="message-content">
+                <p>你好呀~ 很高兴能和你聊天</p>
+                <span class="message-time">20:31</span>
+            </div>
+        </div>
+        
+        <!-- 自己消息 -->
+        <div class="message-item self">
+            <div class="message-content">
+                <p>你好！今天心情不太好，想找人聊聊</p>
+                <span class="message-time">20:32</span>
+            </div>
+            <div class="message-avatar">🌙</div>
+        </div>
+        
+        <!-- 对方消息 -->
+        <div class="message-item other">
+            <div class="message-avatar">🌟</div>
+            <div class="message-content">
+                <p>愿意听你倾诉，发生什么事了吗？</p>
+                <span class="message-time">20:33</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- AI助攻气泡 -->
+    <div class="ai-bubbles" id="aiBubbles" style="display: none;">
+        <div class="ai-bubble" onclick="sendAIReply(0)">
+            <span class="ai-icon">🤖</span>
+            <span class="ai-text" id="aiText0">我能理解你的感受...</span>
+        </div>
+        <div class="ai-bubble" onclick="sendAIReply(1)">
+            <span class="ai-icon">🤖</span>
+            <span class="ai-text" id="aiText1">听起来你需要一个拥抱</span>
+        </div>
+        <div class="ai-bubble" onclick="sendAIReply(2)">
+            <span class="ai-icon">🤖</span>
+            <span class="ai-text" id="aiText2">你不是一个人，我在这里</span>
+        </div>
+    </div>
+
+    <!-- 输入区域 -->
+    <footer class="chat-footer">
+        <button class="mask-btn" onclick="toggleMask()" id="maskBtn">
+            <span class="mask-icon">🎭</span>
+            <span class="mask-text">匿名</span>
+        </button>
+        <div class="input-container">
+            <input type="text" class="chat-input" placeholder="输入消息..." id="chatInput" onkeyup="handleEnter(event)">
+            <button class="send-btn" onclick="sendMessage()">发送</button>
+        </div>
+        <button class="ai-assist-btn" onclick="toggleAIAssist()">
+            <span class="ai-assist-icon">💡</span>
+            <span class="ai-assist-text">AI助攻</span>
+        </button>
+    </footer>
+
+    <!-- 长按菜单 -->
+    <div class="longpress-menu" id="longpressMenu" style="display: none;">
+        <div class="menu-item" onclick="editMessage()">✏️ 修改暴露程度</div>
+        <div class="menu-item" onclick="copyMessage()">📋 复制</div>
+        <div class="menu-item" onclick="deleteMessage()">🗑️ 删除</div>
+    </div>
+
+    <script src="js/chat.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星树 - 我的</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="top-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">⭐</span>
+                <span class="logo-text">星树</span>
+            </div>
+            <div class="slogan">
+                <span>Lose yourself to find yourself.</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 用户信息 -->
+    <div class="user-section">
+        <div class="user-card">
+            <div class="avatar">🌙</div>
+            <div class="user-info">
+                <h2 class="username">⭐ 星树#1234</h2>
+                <p class="user-desc">在星树中寻找心灵的归宿</p>
+            </div>
+            <button class="edit-btn" onclick="editProfile()">编辑资料</button>
+        </div>
+    </div>
+
+    <!-- 匿名等级调节 -->
+    <div class="anonymity-section">
+        <div class="section-header">
+            <span class="section-icon">🎭</span>
+            <h3>匿名等级</h3>
+        </div>
+        <div class="anonymity-card">
+            <div class="anonymity-info">
+                <span class="anonymity-label">当前等级</span>
+                <span class="anonymity-value" id="anonymityLevel">Lv.3 半匿名</span>
+            </div>
+            <div class="slider-container">
+                <input type="range" min="1" max="5" value="3" class="anonymity-slider" id="anonymitySlider" oninput="updateAnonymityLevel(this.value)">
+                <div class="slider-labels">
+                    <span>完全实名</span>
+                    <span>半实名</span>
+                    <span>半匿名</span>
+                    <span>高匿名</span>
+                    <span>完全匿名</span>
+                </div>
+            </div>
+            <div class="anonymity-description" id="anonymityDesc">半匿名模式下，您的部分个人信息会被隐藏</div>
+        </div>
+    </div>
+
+    <!-- 统计数据 -->
+    <div class="stats-section">
+        <div class="stat-item" onclick="redirectToMyPosts()">
+            <span class="stat-value">12</span>
+            <span class="stat-label">我的发布</span>
+        </div>
+        <div class="stat-item" onclick="redirectToMyResonance()">
+            <span class="stat-value">45</span>
+            <span class="stat-label">我的共鸣</span>
+        </div>
+        <div class="stat-item" onclick="redirectToGarden()">
+            <span class="stat-value">23</span>
+            <span class="stat-label">情绪花园</span>
+        </div>
+        <div class="stat-item" onclick="redirectToAchievements()">
+            <span class="stat-value">15</span>
+            <span class="stat-label">成就徽章</span>
+        </div>
+    </div>
+
+    <!-- 功能菜单 -->
+    <div class="menu-section">
+        <div class="menu-list">
+            <div class="menu-item" onclick="redirectToMatch()">
+                <span class="menu-icon">🤝</span>
+                <span class="menu-text">契约匹配</span>
+                <span class="menu-arrow">›</span>
+            </div>
+            <div class="menu-item" onclick="redirectToGarden()">
+                <span class="menu-icon">🌻</span>
+                <span class="menu-text">情绪花园</span>
+                <span class="menu-arrow">›</span>
+            </div>
+            <div class="menu-item" onclick="redirectToMyPosts()">
+                <span class="menu-icon">📤</span>
+                <span class="menu-text">我的发布</span>
+                <span class="menu-arrow">›</span>
+            </div>
+            <div class="menu-item" onclick="redirectToMyResonance()">
+                <span class="menu-icon">✨</span>
+                <span class="menu-text">我的共鸣</span>
+                <span class="menu-arrow">›</span>
+            </div>
+            <div class="menu-item" onclick="redirectToMyPlanets()">
+                <span class="menu-icon">🪐</span>
+                <span class="menu-text">我的星球</span>
+                <span class="menu-arrow">›</span>
+            </div>
+            <div class="menu-item" onclick="redirectToAchievements()">
+                <span class="menu-icon">🏆</span>
+                <span class="menu-text">成就徽章</span>
+                <span class="menu-arrow">›</span>
+            </div>
+            <div class="menu-item" onclick="redirectToAgreement()">
+                <span class="menu-icon">📄</span>
+                <span class="menu-text">用户协议</span>
+                <span class="menu-arrow">›</span>
+            </div>
+            <div class="menu-item" onclick="redirectToPrivacy()">
+                <span class="menu-icon">🔒</span>
+                <span class="menu-text">隐私政策</span>
+                <span class="menu-arrow">›</span>
+            </div>
+            <div class="menu-item" onclick="redirectToContact()">
+                <span class="menu-icon">📞</span>
+                <span class="menu-text">联系我们</span>
+                <span class="menu-arrow">›</span>
+            </div>
+            <div class="menu-item" onclick="redirectToHelp()">
+                <span class="menu-icon">❓</span>
+                <span class="menu-text">帮助中心</span>
+                <span class="menu-arrow">›</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 设置菜单 -->
+    <div class="settings-section">
+        <div class="menu-item" onclick="logout()">
+            <span class="menu-icon">🚪</span>
+            <span class="menu-text">退出登录</span>
+            <span class="menu-arrow">›</span>
+        </div>
+    </div>
+
+    <!-- 底部导航 -->
+    <nav class="bottom-nav">
+        <div class="nav-item" onclick="redirectToIndex()">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-text">首页</span>
+        </div>
+        <div class="nav-item" onclick="redirectToMatch()">
+            <span class="nav-icon">🤝</span>
+            <span class="nav-text">契约匹配</span>
+        </div>
+        <div class="nav-item" onclick="redirectToGarden()">
+            <span class="nav-icon">🌻</span>
+            <span class="nav-text">情绪花园</span>
+        </div>
+        <div class="nav-item" onclick="redirectToTreehole()">
+            <span class="nav-icon">🌳</span>
+            <span class="nav-text">树洞倾诉</span>
+        </div>
+        <div class="nav-item active" onclick="redirectToProfile()">
+            <span class="nav-icon">👤</span>
+            <span class="nav-text">我的</span>
+        </div>
+    </nav>
+
+    <script src="js/profile.js"></script>
+</body>
+</html>
